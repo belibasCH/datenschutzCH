@@ -1,0 +1,2 @@
+# datenschutzCH
+Datenschutzgenerator revDSG
