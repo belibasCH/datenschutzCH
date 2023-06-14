@@ -1,16 +1,19 @@
 import React from "react";
 import { DataContext } from "../DataContext";
 import { useContext } from "react";
+import GoogleAnalytics from "./GoogleAnalytics";
+import GoogleFonts from "./GoogleFonts";
 
-const Datenschutzerklarung = () => {
+const Datenschutzerklaerung = () => {
     const context = useContext(DataContext);
     return (
-        <div className='dataenschutz-container'>
+        <div className='datenschutz-container'>
+            <div className='datenschutz-document'>
             <h3>Datenschutzerklärung</h3>
-            {context.googleAnalaytics && <p>Google Analytics is enabled</p>}
-            {context.googleFonts && <p>Google Fonts is enabled</p>}
-        
+            {context.googleAnalaytics && <GoogleAnalytics/>}
+            {context.googleFonts && <GoogleFonts/>}
+         </div>
          </div>
     );
 };
-export default Datenschutzerklarung;
+export default Datenschutzerklaerung;
