@@ -1,9 +1,22 @@
 * {
   --default-gap: 2rem;
+  font-family: Montserrat;
+}
+.App {
+  height: 100vh;
+}
+header {
+  height: 10%;
 }
 main {
   display: flex;
   width: 100%;
+  height: 90%;
+  overflow: hidden;
+}
+h1 {
+  padding: 1rem;
+  margin: 0;
 }
 main form {
   width: 50%;
@@ -14,15 +27,9 @@ main form input {
   padding: 0.5rem;
   margin-bottom: var(--default-gap);
 }
-main .datenschutz-container {
-  width: 50%;
-  padding: var(--default-gap);
-  background-color: #f5f5f5;
-  overflow-y: scroll;
+.input-group {
+  border: 2px solid red;
 }
-.datenschutz-document{
-  padding: var(--default-gap);
-  background-color: white;
-  box-shadow: 0 0 10px rgba(144, 34, 34, 0.2); 
-  ; 
+.input-group.green{
+  border: 2px solid darkgreen;;
 }

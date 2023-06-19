@@ -1,0 +1,33 @@
+main .datenschutz-container {
+    width: 50%;
+    padding: var(--default-gap);
+    background-color: #efefef;
+    position: relative;
+    max-height: calc(90%-(2*var(--default-gap)));
+}
+  #datenschutz-document{
+    padding: var(--default-gap);
+    background-color: white;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; 
+    overflow-y: auto;
+
+}
+  .copy-banner{
+    position: absolute;
+    bottom: var(--default-gap);
+    right: var(--default-gap);
+    width: 30%;
+    min-width: 200px;
+    background-color:darkgreen;
+    padding: var(--default-gap);
+    color: white;
+    text-align: center;
+  }
+  .copy-banner button{
+    width: 100%;
+    height: 40px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    font-weight: 700;
+  }

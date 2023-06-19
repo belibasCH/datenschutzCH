@@ -1,30 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Datenschutzerklaerung from './components/Datenschutzerklaerung';
 import { DataContext } from './DataContext';
+import userEvent from '@testing-library/user-event';
 
 const App = () => {
   App.defaultProps = {
     data : {
     companyName: '',
     companyAddress: '',
+    url: '',
     googleAnalytics: false,
     googleFonts: false
   }
 }
 const [data, setData] = useState(App.defaultProps.data);
-
+const [status, setStatus] = useState([false, false, false]);
+useEffect(() => {
+  let newStatus = [...status];
+  if (data.companyName != '') {newStatus[0] = true;}
+  if (data.googleAnalaytics)  {newStatus[1]=true}
+  setStatus(newStatus);
+}, [data]);
+ 
   return (
     <div className="App">
       <DataContext.Provider value={data}>
       <header >
         <h1>Generator für Datenschutzerklärungen</h1>
-        <h2>revDSG</h2>
       </header>
       <main>
         <form>
-          <label htmlFor="companyName">Company Name</label>
+          <div className={status[0] ? "input-group green" : "input-group"}>
+          <label htmlFor="companyName">Firmenname</label>
           <input 
             type="text" 
             id="companyName" 
@@ -32,7 +41,15 @@ const [data, setData] = useState(App.defaultProps.data);
             value={data.companyName} 
             placeholder="Firemnname" 
             onChange={(e) => setData({ ...data, companyName: e.target.value })} />
-          <label htmlFor="companyAddress">Company Address</label>
+          <label htmlFor="url">URL</label>
+          <input 
+            type="text" 
+            id="url" 
+            name="url" 
+            value={data.url} 
+            placeholder="Url" 
+            onChange={(e) => setData({ ...data, url: e.target.value })} />
+          <label htmlFor="companyAddress">Adresse</label>
           <input 
             type="text" 
             id="companyAddress" 
@@ -40,6 +57,8 @@ const [data, setData] = useState(App.defaultProps.data);
             value={data.companyAddress} 
             placeholder="Adresse" 
             onChange={(e) => setData({ ...data, companyAddress: e.target.value })} />
+            </div>
+          <div className={status[1] ? "input-group green" : "input-group"}>
           <label htmlFor="googleAnalaytics">Google Analytics</label>
           <input 
             type="checkbox" 
@@ -54,8 +73,10 @@ const [data, setData] = useState(App.defaultProps.data);
             name="googleFonts" 
             checked={data.googleFonts} 
             onChange={(e) => setData({ ...data, googleFonts: e.target.checked })} />
+            
+            </div>
         </form>
-          <Datenschutzerklaerung />
+          <Datenschutzerklaerung status={status}/>
       </main>
       </DataContext.Provider>
     </div>

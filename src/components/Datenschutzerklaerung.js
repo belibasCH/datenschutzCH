@@ -3,16 +3,23 @@ import { DataContext } from "../DataContext";
 import { useContext } from "react";
 import GoogleAnalytics from "./GoogleAnalytics";
 import GoogleFonts from "./GoogleFonts";
+import Eins_WorumGehtEs from "./Eins_WorumGehtEs";
+import '../css/Datenschutz.css'
+import CopyBanner from "./CopyBanner";
 
-const Datenschutzerklaerung = () => {
+const Datenschutzerklaerung = (status) => {
     const context = useContext(DataContext);
+    
+   
     return (
         <div className='datenschutz-container'>
-            <div className='datenschutz-document'>
-            <h3>Datenschutzerklärung</h3>
-            {context.googleAnalaytics && <GoogleAnalytics/>}
-            {context.googleFonts && <GoogleFonts/>}
-         </div>
+            <div id='datenschutz-document'>
+                <h1>Datenschutzerklärung der {context.companyName}</h1>
+                <Eins_WorumGehtEs/>
+                {context.googleAnalaytics && <GoogleAnalytics/>}
+                {context.googleFonts && <GoogleFonts/>}
+            </div>
+           <CopyBanner data={status}/>
          </div>
     );
 };
