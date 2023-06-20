@@ -12,15 +12,17 @@ const Datenschutzerklaerung = (status) => {
     
    
     return (
-        <div className='datenschutz-container'>
+        <>
             <div id='datenschutz-document'>
+            <CopyBanner data={status}/>
                 <h1>Datenschutzerklärung der {context.companyName}</h1>
                 <Eins_WorumGehtEs/>
                 {context.googleAnalaytics && <GoogleAnalytics/>}
                 {context.googleFonts && <GoogleFonts/>}
             </div>
-           <CopyBanner data={status}/>
-         </div>
+
+        </>
+        
     );
 };
 export default Datenschutzerklaerung;

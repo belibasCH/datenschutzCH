@@ -1,22 +1,17 @@
-main .datenschutz-container {
-    width: 50%;
-    padding: var(--default-gap);
-    background-color: #efefef;
-    position: relative;
-    max-height: calc(90%-(2*var(--default-gap)));
-}
   #datenschutz-document{
     padding: var(--default-gap);
     background-color: white;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; 
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 25px 50px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; 
     overflow-y: auto;
-
+    border-radius: 20px;
+    position: relative;
 }
   .copy-banner{
     position: absolute;
-    bottom: var(--default-gap);
-    right: var(--default-gap);
+    bottom: 50%;
+    right: 50%;
     width: 30%;
+    transform: translate(50%, 50%);
     min-width: 200px;
     background-color:darkgreen;
     padding: var(--default-gap);
