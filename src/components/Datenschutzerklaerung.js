@@ -12,16 +12,17 @@ const Datenschutzerklaerung = (status) => {
     
    
     return (
-        <>
-            <div id='datenschutz-document'>
+        <div id="datenschutz-container">
             <CopyBanner data={status}/>
+            <div id='datenschutz-document'>
                 <h1>Datenschutzerklärung der {context.companyName}</h1>
+                <Eins_WorumGehtEs/>
+                <Eins_WorumGehtEs/>
                 <Eins_WorumGehtEs/>
                 {context.googleAnalaytics && <GoogleAnalytics/>}
                 {context.googleFonts && <GoogleFonts/>}
             </div>
-
-        </>
+        </div>
         
     );
 };

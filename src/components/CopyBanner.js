@@ -12,7 +12,6 @@ const CopyBanner = (data) => {
         <button onClick={getPolicy}>Jetzt kopieren</button>
     </div>
     );
-    
 };
 export default CopyBanner;
 
