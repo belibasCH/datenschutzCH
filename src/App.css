@@ -5,6 +5,8 @@
   font-family: Montserrat;
   --bluegray: #D6DDDF;
   --background: #F4F6FA;
+  --red: #B91313; 
+  --green: #19B233;
 }
 .App {
   height: 100vh;
@@ -18,11 +20,17 @@ main {
   display: flex;
   gap: var(--default-gap);
   padding: var(--default-gap);
-  height: calc(90% - (2 * var(--default-gap))) ;
+  height: calc(85% - (2 * var(--default-gap))) ;
   overflow: hidden;
-  align-items: stretch;
   margin: auto;
   max-width: 1400px;
+  padding-top:200px;
+  background-image: url(/src/background_image.svg);
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+  background-size: 220px;
+  background-position-x: center;
+
 }
 h1 {
   padding: 1rem;
@@ -33,8 +41,8 @@ main form {
   overflow: scroll;
   background-color: var(--background);
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 25px 50px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; 
-  min-width: calc(50% - (2*var(--default-gap)));
   border-radius: 20px;
+  min-width: calc(50% - (var(--default-gap)/2));
   display: flex;
   flex-direction: column;
   gap: var(--small-gap);
@@ -60,19 +68,20 @@ form label{
   gap: var(--small-gap);
 }
 .input-group {
-  border: 2px solid #B91313;
+  border: 2px solid var(--red);
   border-radius: 20px;
   padding: var(--small-gap);
+  position: relative;
 }
 .input-group.green{
-  border: 2px solid #19B233;;
+  border: 2px solid var(--green);;
 }
 .inputcell{
   display: flex;
   flex-direction: column;
 }
 .stepheading h2{
-  color: gray;
+  color: rgb(167, 165, 165);
   font-weight: 700;
   font-size: 2.5rem;
   margin: 0;
@@ -81,4 +90,13 @@ form label{
   font-weight: 700;
   font-size: 1rem;
   margin-top: 0;
+}
+.stats {
+  position: absolute;
+  bottom: -10px;
+  right: var(--border-radius);
+  background-color: var(--background);
+  padding: 0 5px;
+  color: var(--red);
+  font-weight: bold;
 }
