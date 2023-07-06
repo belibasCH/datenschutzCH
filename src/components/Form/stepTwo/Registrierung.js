@@ -18,7 +18,7 @@ const Registrierung = ({update}) => {
     else {update("registrierung")(false)}
     }, [status]);
 
-  const technischeDaten = <><div className="accordion-input">
+  const content = <><div className="accordion-input">
     <label>Wie lange werden die Daten aufbewahrt?</label>
     <div className="input-row-group">
     <input type="number"
@@ -36,7 +36,7 @@ const Registrierung = ({update}) => {
 </>;
 
   return (
-      <Accordion title="Registrierungsdaten" content={technischeDaten} status={status? "green" :"red"} open={true} />
+      <Accordion title="Registrierungsdaten" content={content} status={status? "green" :"red"} open={false} />
     )
 }
 

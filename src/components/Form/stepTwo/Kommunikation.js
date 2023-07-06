@@ -1,21 +1,22 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from 'react';
 import Accordion from "../../Accordion";
-import { DataContext } from "./../../../DataContext";
+import { DataContext } from "../../../DataContext";
 
 
 
-const Technisch = ({update}) => {
+const Kommunikation = ({update}) => {
   const [data, setData] = useState(useContext(DataContext));
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
-    if (data.technischAufbewahrung != 0) { 
-      setStatus(true);     
-      update("technisch")(true);
-    }
-    else {update("technisch")(false)}
+    if (data.technischAufbewahrung != 0) {setStatus(true);     }
   }, [data]);
+
+  useEffect(() => {
+    if (status) {update("kommunikation")(true);}
+    else {update("Kommunikation")(false)}
+    }, [status]);
 
   const content = <><div className="accordion-input">
     <label>Wie lange werden die Daten aufbewahrt?</label>
@@ -35,8 +36,8 @@ const Technisch = ({update}) => {
 </>;
 
   return (
-      <Accordion title="Technische Daten" content={content} status={status? "green" :"red"} open={false} />
+      <Accordion title="Kommunikationsdaten" content={content} status={status? "green" :"red"} open={false} />
     )
 }
 
-export default Technisch;
+export default Kommunikation;

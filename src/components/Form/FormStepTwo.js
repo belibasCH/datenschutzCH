@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Accordion from "../Accordion";
 import Technisch from "./stepTwo/Technisch";
 import Registrierung from "./stepTwo/Registrierung";
+import Kommunikation from "./stepTwo/Kommunikation";
 
 
 const FormStepTwo = () => {
@@ -23,6 +24,7 @@ const FormStepTwo = () => {
       </div>
       <Technisch update={updateStatus}/>
       <Registrierung update={updateStatus}/>
+      <Kommunikation update={updateStatus}/>
         <Accordion title="Registrierungsdaten" content="Inhalt" status="red" open={true} />
         <Accordion title="Kommunikationsdaten" content="Inhalt" status="green" open={true} />
         <Accordion title="Stammdaten" content="Inhalt" status="red" open={true} />

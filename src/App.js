@@ -5,6 +5,7 @@ import Datenschutzerklaerung from './components/Datenschutzerklaerung';
 import { DataContext } from './DataContext';
 import FormStepOne from './components/Form/FormStepOne';
 import FormStepTwo from './components/Form/FormStepTwo';
+import FormStepThree from './components/Form/FormStepThree';
 
 const App = () => {
   App.defaultProps = {
@@ -57,6 +58,8 @@ const App = () => {
           <form>
             <FormStepOne />
             <FormStepTwo />
+            <FormStepThree />
+            
 
             <div className={status[1] ? "input-group green" : "input-group"}>
               <h2 className='stepheading'>Schritt 4</h2>
