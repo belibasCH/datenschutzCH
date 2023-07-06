@@ -1,0 +1,14 @@
+.icon {
+    height: 20px;
+    width: 20px;
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+    background-color: black;
+    cursor: pointer;
+}
+.icon.open{
+    mask-image: url(../assets/icons/open.png);
+}
+.icon.close{
+    mask-image: url(../assets/icons/close.png);
+}

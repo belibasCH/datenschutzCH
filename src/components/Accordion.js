@@ -2,16 +2,21 @@ import React, { useState } from "react";
 import "../css/Accordion.css"
 
 
-const Accordion = content => {
-  const [open, setOpen] = useState(true);
+const Accordion = ({title, content, status, open}) => {
+  const [openState, setOpenState] = useState(open);
+  const changestate = () => {
+    setOpenState(!openState);
+  }
   return (
-    <div className="accordion">
-      <div className="accordion-title">
-        <h4>Titel</h4>
-        <p>3 von 5</p>
-        <div className={open ? "open icon minus-icon": "close icon plus-icon"}></div>
+    <div className="accordion" >
+      <div className="accordion-title" onClick={changestate}>
+        <h4>{title}</h4>
+        <div className="accordion-right">
+        <div className={`status ${status}`}></div>
+        <div className={openState ? "open icon minus-icon": "close icon plus-icon"} onClick={changestate}></div>
+        </div>
       </div>
-      <div>Hallo {content.content}</div>
+      <div className={openState ? "open accordion-content": "close accordion-content"}>{content}</div>
     </div>
 
 

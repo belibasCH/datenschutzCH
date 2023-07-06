@@ -6,6 +6,8 @@ import Accordion from "../Accordion";
 
 const FormStepOne = () => {
   const [data, setData] = useState(useContext(DataContext));
+  console.log(data);
+
 
   return (
   <div className="input-group">
@@ -66,8 +68,7 @@ const FormStepOne = () => {
           onChange={(e) => setData({ ...data, companyAddress: e.target.value })} />
       </div>
     </div>
-    <Accordion content="Testcontent"/>
-  </div>)
+    </div>)
 }
 
 export default FormStepOne;

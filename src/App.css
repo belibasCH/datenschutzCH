@@ -25,7 +25,7 @@ main {
   margin: auto;
   max-width: 1400px;
   padding-top:200px;
-  background-image: url(/src/background_image.svg);
+  background-image: url(/src/assets/background_image.svg);
   background-position-y: 20px;
   background-repeat: no-repeat;
   background-size: 220px;
