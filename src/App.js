@@ -6,6 +6,7 @@ import { DataContext } from './DataContext';
 import FormStepOne from './components/Form/FormStepOne';
 import FormStepTwo from './components/Form/FormStepTwo';
 import FormStepThree from './components/Form/FormStepThree';
+import FormStepFour from './components/Form/FormStepFour';
 
 const App = () => {
   App.defaultProps = {
@@ -17,31 +18,16 @@ const App = () => {
       url: '',
       technischAufbewahrung: 0,
       technischKostenlosesWlan: false,
-
-      verarbeitung: {
-        finanzdaten: false,
-        gesundheitsdaten: false,
-        standortdaten: false,
-        biodaten: false,
-        privatsphaere: {
-
-        },
-        autoEntscheide: false,
-        datenverkauf: false,
-        datenCH: false,
-        datenEU: false,
-        datenWelt: false
-      },
-      dienste: {
-        googleAnalytics: false,
-        googleFonts: false,
-        matomo: {
-          status: false,
-          additionalText: ""
-        }
+      CH: false,
+      EU: false,
+      World: false,
+    
+      googleAnalytics: false,
+      googleFonts: false,
+      matomo: false
       }
     }
-  }
+  
   const [data, setData] = useState(App.defaultProps.data);
   const [status, setStatus] = useState([false, false, false]);
   useEffect(() => {
@@ -59,6 +45,7 @@ const App = () => {
             <FormStepOne />
             <FormStepTwo />
             <FormStepThree />
+            <FormStepFour />
             
 
             <div className={status[1] ? "input-group green" : "input-group"}>

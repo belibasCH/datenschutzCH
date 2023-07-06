@@ -1,10 +1,18 @@
-import React from "react";
+import React , { useContext, useEffect } from "react";
 import { useState } from 'react';
 import Card from "../Card";
+import { DataContext } from "../../DataContext";
+
 
 
 const FormStepThree = () => {
   const [status, setStatus] = useState(false);
+  const [data, setData] = useState(useContext(DataContext));
+
+useEffect(() => {
+  data.CH || data.EU || data.World ? setStatus(true) : setStatus(false); 
+}, [data]);
+  console.log(data);
 
   return (
     <div className={status ? "input-group green" : "input-group red"} >
@@ -14,9 +22,9 @@ const FormStepThree = () => {
         <h3>Ort der Datenverarbeitung</h3>
       </div>
       <div className="card-container">
-        <Card imageUrl={require('../../assets/flags/swissflag.png')} action={() => console.log("TBD")} title="Schweiz" content={""} />
-        <Card imageUrl={require('../../assets/flags/euflag.png')} action={() => console.log("TBD")} title="EU" content={""} />
-        <Card imageUrl={require('../../assets/flags/worldflag.png')} action={() => console.log("TBD")} title="World" content={""} />
+        <Card imageUrl={require('../../assets/flags/swissflag.png')}  action={newStatus => setData({ ...data, CH: newStatus })} title="Schweiz" content={""} />
+        <Card imageUrl={require('../../assets/flags/euflag.png')}     action={newStatus => setData({ ...data, EU: newStatus })} title="EU" content={""} />
+        <Card imageUrl={require('../../assets/flags/worldflag.png')}  action={newStatus => setData({ ...data, World: newStatus })}  title="World" content={""} />
       </div>
     </div>)
 }

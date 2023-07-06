@@ -112,9 +112,9 @@ form label{
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--small-gap);
-  align-items: center;
+  align-items: stretch;
   justify-items: center;
 }
 .card {
@@ -124,7 +124,11 @@ form label{
   border-radius: var(--border-radius);
   width: 100%;
   padding: var(--small-gap) 0;
-
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card:hover {
@@ -148,4 +152,8 @@ form label{
   font-weight: 600;
   font-size: 13px;
   margin-top: 0.5rem;
+}
+.card img{
+  max-width: 100px;
+  max-height: 50px;
 }
