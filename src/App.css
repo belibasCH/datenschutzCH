@@ -55,7 +55,6 @@ form input[type=text]{
   border: 2px solid var(--bluegray);
 }
 form label{
-  padding-left: 10px;
   color: black;
   font-weight: 600;
   font-size: small;
@@ -68,10 +67,12 @@ form label{
   gap: var(--small-gap);
 }
 .input-group {
-  border: 2px solid var(--red);
   border-radius: 20px;
   padding: var(--small-gap);
   position: relative;
+}
+.input-group.red{
+  border: 2px solid var(--red);
 }
 .input-group.green{
   border: 2px solid var(--green);;
@@ -99,4 +100,11 @@ form label{
   padding: 0 5px;
   color: var(--red);
   font-weight: bold;
+}
+
+.stats.green {
+  color: var(--green);
+}
+.stats.red {
+  color: var(--red);
 }

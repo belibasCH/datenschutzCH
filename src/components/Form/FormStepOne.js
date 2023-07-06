@@ -1,17 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from 'react';
 import { DataContext } from "../../DataContext";
-import Accordion from "../Accordion";
 
 
 const FormStepOne = () => {
   const [data, setData] = useState(useContext(DataContext));
-  console.log(data);
+  const [status, setStatus] = useState(0);
 
+  console.log(data);
+  console.log(status);
+
+  useEffect(() => {
+    let newStatus = 0;
+    if (data.companyName != '') { newStatus++ }
+    if (data.url != '') { newStatus++ }
+    if (data.companyAddress != "") { newStatus++ }
+    if (data.companyPLZ != "") { newStatus++ }
+    if (data.companyPlace != "") { newStatus++ }
+    setStatus(newStatus);
+  }, [data]);
+
+  
 
   return (
-  <div className="input-group">
-    <div className='stats'>3 von 5</div>
+  <div className={status ==5 ? "input-group green" : "input-group red"} >
+    <div className={status ==5 ? "stats green" : "stats red"} >{status} von 5</div>
     <div className='stepheading'>
       <h2 >Schritt 1</h2>
       <h3>Beschreibung zu Schritt 1</h3>
@@ -53,19 +66,19 @@ const FormStepOne = () => {
           type="text"
           id="companyPLZ"
           name="companyPLZ"
-          value={data.companyPlace}
+          value={data.companyPLZ}
           placeholder="PLZ"
-          onChange={(e) => setData({ ...data, companyAddress: e.target.value })} />
+          onChange={(e) => setData({ ...data, companyPLZ: e.target.value })} />
       </div>
       <div className='inputcell'>
-        <label htmlFor="companyPLZ">Ort</label>
+        <label htmlFor="companyPlace">Ort</label>
         <input
           type="text"
-          id="companyPLZ"
-          name="companyPLZ"
+          id="companyPlace"
+          name="companyPlace"
           value={data.companyPlace}
           placeholder="Ort"
-          onChange={(e) => setData({ ...data, companyAddress: e.target.value })} />
+          onChange={(e) => setData({ ...data, companyPlace: e.target.value })} />
       </div>
     </div>
     </div>)
