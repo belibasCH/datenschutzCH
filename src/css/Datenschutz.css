@@ -32,13 +32,19 @@
   .copy-banner button{
     width: 100%;
     height: 40px;
-    border: 2px solid white;
+    border: 2px solid var(--green);
+    background-color: var(--green);
     color: white;
-    background-color: transparent;
     font-weight: 700;
+  }
 
+  .copy-banner button:hover{
+    background-color: white;
+    color: green;
+    cursor: pointer;
   }
-  .copy-banner h2.red {
-    color: #B91313;
+  .copy-banner.green {
+    border: 2px solid var(--green);
   }
+
   

@@ -24,7 +24,6 @@ const Technisch = ({update}) => {
     min={0}
     value={data.technischAufbewahrung}
     onChange={ (e) => setData({ ...data, technischAufbewahrung: e.target.value })} />
-
     <p>Monate</p>
     </div>
   </div>

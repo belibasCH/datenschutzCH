@@ -24,18 +24,13 @@ const App = () => {
     
       googleAnalytics: false,
       googleFonts: false,
-      matomo: false
+      matomo: false,
+      mailchimp: false,
+      keine: false,
       }
     }
   
   const [data, setData] = useState(App.defaultProps.data);
-  const [status, setStatus] = useState([false, false, false]);
-  useEffect(() => {
-    let newStatus = [...status];
-    if (data.companyName != '') { newStatus[0] = true; }
-    if (data.googleAnalaytics) { newStatus[1] = true }
-    setStatus(newStatus);
-  }, [data]);
 
   return (
     <div className="App">
@@ -48,26 +43,9 @@ const App = () => {
             <FormStepFour />
             
 
-            <div className={status[1] ? "input-group green" : "input-group"}>
-              <h2 className='stepheading'>Schritt 4</h2>
-              <label htmlFor="googleAnalaytics">Google Analytics</label>
-              <input
-                type="checkbox"
-                id="googleAnalaytics"
-                name="googleAnalaytics"
-                checked={data.googleAnalaytics}
-                onChange={(e) => setData({ ...data, googleAnalaytics: e.target.checked })} />
-              <label htmlFor="googleFonts">Google Fonts</label>
-              <input
-                type="checkbox"
-                id="googleFonts"
-                name="googleFonts"
-                checked={data.googleFonts}
-                onChange={(e) => setData({ ...data, googleFonts: e.target.checked })} />
-
-            </div>
+    
           </form>
-          <Datenschutzerklaerung status={status} />
+          <Datenschutzerklaerung status={true} />
         </main>
       </DataContext.Provider>
     </div>
