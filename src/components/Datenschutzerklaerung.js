@@ -9,7 +9,6 @@ import CopyBanner from "./CopyBanner";
 
 const Datenschutzerklaerung = ({status}) => {
     const context = useContext(DataContext);
-    console.log(context);
    
     return (
         <div id="datenschutz-container">

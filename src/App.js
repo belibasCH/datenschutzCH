@@ -36,7 +36,6 @@ const App = () => {
     setData({ ...data, [key]: value });
   }
 
-
   return (
     <div className="App">
       <DataContext.Provider value={{data:data, update: update}}>
@@ -46,9 +45,6 @@ const App = () => {
             <FormStepTwo />
             <FormStepThree />
             <FormStepFour />
-            
-
-    
           </form>
           <Datenschutzerklaerung status={false} />
         </main>

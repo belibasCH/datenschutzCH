@@ -1,7 +1,6 @@
 import React from "react";
 
 const CopyBanner = ({ status }) => {
-    console.log(status);
     const getPolicy = () => {
         const container = document.getElementById('datenschutz-document');
         navigator.clipboard.writeText(container.innerHTML);
