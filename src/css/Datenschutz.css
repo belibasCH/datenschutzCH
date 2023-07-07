@@ -14,6 +14,9 @@
     background-color:white; 
     color: #ACB0B1;
 }
+#datenschutz-document.green{
+  color: black;
+}
   .copy-banner{
     position: absolute;
     bottom: 50%;

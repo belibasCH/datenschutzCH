@@ -4,11 +4,9 @@ import { DataContext } from "../../DataContext";
 
 
 const FormStepOne = () => {
-  const [data, setData] = useState(useContext(DataContext));
+  const context = useContext(DataContext);
   const [status, setStatus] = useState(0);
-
-  console.log(data);
-  console.log(status);
+  const [data, setData] = useState(context);
 
   useEffect(() => {
     let newStatus = 0;
@@ -38,7 +36,7 @@ const FormStepOne = () => {
           name="companyName"
           value={data.companyName}
           placeholder="Gemäss Handelsregister"
-          onChange={(e) => setData({ ...data, companyName: e.target.value })} />
+          onChange={(e) => context.update("companyName")(e.target.value)} />
       </div>
       <div className='inputcell'>
         <label htmlFor="url">URL</label>

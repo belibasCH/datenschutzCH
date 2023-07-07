@@ -11,7 +11,7 @@ import FormStepFour from './components/Form/FormStepFour';
 const App = () => {
   App.defaultProps = {
     data: {
-      companyName: '',
+      companyName: 'Name',
       companyAddress: '',
       companyPLZ: '',
       companyPlace: '',
@@ -31,10 +31,15 @@ const App = () => {
     }
   
   const [data, setData] = useState(App.defaultProps.data);
+  
+  const update = key => value =>{
+    setData({ ...data, [key]: value });
+  }
+
 
   return (
     <div className="App">
-      <DataContext.Provider value={data}>
+      <DataContext.Provider value={{data:data, update: update}}>
         <main>
           <form>
             <FormStepOne />
@@ -45,7 +50,7 @@ const App = () => {
 
     
           </form>
-          <Datenschutzerklaerung status={true} />
+          <Datenschutzerklaerung status={false} />
         </main>
       </DataContext.Provider>
     </div>
