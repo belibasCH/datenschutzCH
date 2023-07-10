@@ -6,16 +6,16 @@ import { DataContext } from "./../../../DataContext";
 
 
 const Technisch = ({ update }) => {
-    const [data, setData] = useState(useContext(DataContext));
+    const context = useContext(DataContext);
     const [status, setStatus] = useState(false);
 
     useEffect(() => {
-        if (data.technischAufbewahrung != 0) {
+        if (context.data.technischAufbewahrung !== 0) {
             setStatus(true);
             update("technisch")(true);
         }
         else { update("technisch")(false) }
-    }, [data]);
+    }, [context.data]);
 
     const content = <>
         <div className="accordion-input">
@@ -23,8 +23,8 @@ const Technisch = ({ update }) => {
             <div className="input-row-group">
                 <input type="number"
                     min={0}
-                    value={data.technischAufbewahrung}
-                    onChange={(e) => setData({ ...data, technischAufbewahrung: e.target.value })} />
+                    value={context.data.technischAufbewahrung}
+                    onChange={(e) => context.update("technischAufbewahrung")(e.target.value)} />
                 <p>Monate</p>
             </div>
         </div>
@@ -33,8 +33,8 @@ const Technisch = ({ update }) => {
             <label>Bieten Sie ein öffentliches Wlan an?</label>
             <input
                 type="checkbox"
-                value={data.technischWlan}
-                onChange={(e) => setData({ ...data, technischWlan: e.target.checked })} />
+                value={context.data.technischWlan}
+                onChange={(e) => context.update("technischWlan")(e.target.checked)} />
         </div>
     </>;
 

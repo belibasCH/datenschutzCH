@@ -6,13 +6,14 @@ import { DataContext } from "./../../../DataContext";
 
 
 const Registrierung = ({ update }) => {
-  const [data, setData] = useState(useContext(DataContext));
+  const context = useContext(DataContext);
   const [status, setStatus] = useState(false);
-  console.log(data)
+
+  console.log(context.data)
 
   useEffect(() => {
-    if (data.registrierungAufbewahrung != 0) { setStatus(true); }
-  }, [data]);
+    if (context.data.registrierungAufbewahrung !== 0) { setStatus(true); }
+  }, [context.data]);
 
   useEffect(() => {
     if (status) { update("registrierung")(true); }
@@ -25,9 +26,8 @@ const Registrierung = ({ update }) => {
     <div className="input-row-group">
     <input type="number"
     min={0}
-    value={data.registrierungAufbewahrung}
-    onChange={ (e) => setData({ ...data, registrierungAufbewahrung: e.target.value })} />
-
+    value={context.data.registrierungAufbewahrung}
+    onChange={(e) => context.update("registrierungAufbewahrung")(e.target.value)} />
     <p>Monate</p>
     </div>
   </div>
@@ -36,29 +36,29 @@ const Registrierung = ({ update }) => {
       <label>Sammeln Sie Daten aus Wettbewerben</label>
       <input
         type="checkbox"
-        value={data.registrierungWettbewerbe}
-        onChange={(e) => setData({ ...data, registrierungWettbewerbe: e.target.checked })} />
+        value={context.data.registrierungWettbewerbe}
+        onChange={(e) => context.update("registrierungWettbewerbe")(e.target.checked)} />
     </div>
     <div className="accordion-input">
       <label>Können sich User auf Ihrer Website einloggen?</label>
       <input
         type="checkbox"
-        value={data.registrierungLogin}
-        onChange={(e) => setData({ ...data, registrierungLogin: e.target.checked })} />
+        value={context.data.registrierungLogin}
+        onChange={(e) => context.update("registrierungLogin")(e.target.checked)} />
     </div>
     <div className="accordion-input">
       <label>Sammeln Sie Daten, um Newsletter zu versenden?</label>
       <input
         type="checkbox"
-        value={data.registrierungNewsletter}
-        onChange={(e) => setData({ ...data, registrierungNewsletter: e.target.checked })} />
+        value={context.data.registrierungNewsletter}
+        onChange={(e) => context.update("registrierungNewsletter")(e.target.checked)} />
     </div>
     <div className="accordion-input">
       <label>Sammeln Sie Daten bei der Einlösung von Gutscheinen?</label>
       <input
         type="checkbox"
-        value={data.registrierungGutscheine}
-        onChange={(e) => setData({ ...data, registrierungGutscheine: e.target.checked })} />
+        value={context.data.registrierungGutscheine}
+        onChange={(e) => context.update("registrierungGutscheine")(e.target.checked)} />
     </div>
   </>;
 

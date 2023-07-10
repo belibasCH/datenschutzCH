@@ -22,13 +22,14 @@ const App = () => {
       registrierungLogin: false,
       registrierungNewsletter: false,
       registrierungGutscheine: false,
-      registrierungAufbewahrung: false,
+      registrierungAufbewahrung: 0,
       kommunikationChat: false,
+      kommunikationAufbewahrungChats: 0,
       kommunikationRecording: false,
+      kommunikationAufbewahrungVideoRecordings: 0,
       kommunikationAufbewahrungIdentität: 0,
-      kommunikationAufbewahrung: 0,
-
-
+      kommunikationAufbewahrungMail: 0,
+      
       
       CH: false,
       EU: false,

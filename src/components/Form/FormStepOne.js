@@ -9,19 +9,19 @@ const FormStepOne = () => {
 
   useEffect(() => {
     let newStatus = 0;
-    if (context.data.companyName != '') { newStatus++ }
-    if (context.data.url != '') { newStatus++ }
-    if (context.data.companyAddress != "") { newStatus++ }
-    if (context.data.companyPLZ != "") { newStatus++ }
-    if (context.data.companyPlace != "") { newStatus++ }
+    if (context.data.companyName !== '') { newStatus++ }
+    if (context.data.url !== '') { newStatus++ }
+    if (context.data.companyAddress !== "") { newStatus++ }
+    if (context.data.companyPLZ !== "") { newStatus++ }
+    if (context.data.companyPlace !== "") { newStatus++ }
     setStatus(newStatus);
   }, [context]);
 
   
 
   return (
-  <div className={status ==5 ? "input-group green" : "input-group red"} >
-    <div className={status ==5 ? "stats green" : "stats red"} >{status} von 5</div>
+  <div className={status === 5 ? "input-group green" : "input-group red"} >
+    <div className={status === 5 ? "stats green" : "stats red"} >{status} von 5</div>
     <div className='stepheading'>
       <h2 >Schritt 1</h2>
       <h3>Beschreibung zu Schritt 1</h3>
