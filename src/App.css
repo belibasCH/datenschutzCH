@@ -18,7 +18,8 @@ header {
   height: 10%;
 }
 main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--default-gap);
   padding: var(--default-gap);
   height: calc(85% - (2 * var(--default-gap))) ;
@@ -45,7 +46,6 @@ main form {
   background-color: var(--background);
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 25px 50px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; 
   border-radius: 20px;
-  min-width: calc(50% - (var(--default-gap)/2));
   display: flex;
   flex-direction: column;
   gap: var(--small-gap);
