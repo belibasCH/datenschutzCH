@@ -12,7 +12,6 @@ const FormStepThree = () => {
 useEffect(() => {
   data.CH || data.EU || data.World ? setStatus(true) : setStatus(false); 
 }, [data]);
-  console.log(data);
 
   return (
     <div className={status ? "input-group green" : "input-group red"} >

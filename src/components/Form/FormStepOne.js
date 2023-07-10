@@ -7,9 +7,6 @@ const FormStepOne = () => {
   const [data, setData] = useState(useContext(DataContext));
   const [status, setStatus] = useState(0);
 
-  console.log(data);
-  console.log(status);
-
   useEffect(() => {
     let newStatus = 0;
     if (data.companyName != '') { newStatus++ }

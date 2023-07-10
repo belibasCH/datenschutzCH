@@ -18,7 +18,6 @@ useEffect(() => {
   || data.mailchimp
   ? setStatus(true) : setStatus(false); 
 }, [data]);
-  console.log(data);
 
   return (
     <div className={status ? "input-group green" : "input-group red"} >
@@ -32,7 +31,7 @@ useEffect(() => {
         <Card imageUrl={require('../../assets/logos/googleFonts.png')}     action={newStatus => setData({ ...data, googleFonts: newStatus })} title="Google Fonts" content={""} />
         <Card imageUrl={require('../../assets/logos/matomo.png')}  action={newStatus => setData({ ...data, matomo: newStatus })}  title="Matomo" content={""} />
         <Card imageUrl={require('../../assets/logos/mailchimp.png')}  action={newStatus => setData({ ...data, mailchimp: newStatus })}  title="Mailchimp" content={""} />
-        <Card imageUrl={require('../../assets/logos/keine.png')}  action={newStatus => setData({ ...data, keine: newStatus })}  title="keine" content={""} />
+        <Card imageUrl={require('../../assets/logos/keine.png')}  action={newStatus => setData({ ...data, keine: newStatus })}  title="keine/andere" content={""} />
       </div>
     </div>)
 }

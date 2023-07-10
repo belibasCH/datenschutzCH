@@ -17,7 +17,19 @@ const App = () => {
       companyPlace: '',
       url: '',
       technischAufbewahrung: 0,
-      technischKostenlosesWlan: false,
+      technischWlan: false,
+      registrierungWettbewerbe: false,
+      registrierungLogin: false,
+      registrierungNewsletter: false,
+      registrierungGutscheine: false,
+      registrierungAufbewahrung: false,
+      kommunikationChat: false,
+      kommunikationRecording: false,
+      kommunikationAufbewahrungIdentität: 0,
+      kommunikationAufbewahrung: 0,
+
+
+      
       CH: false,
       EU: false,
       World: false,
