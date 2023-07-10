@@ -8,16 +8,16 @@ import GoogleAnalytics from './../GoogleAnalytics';
 
 const FormStepFour = () => {
   const [status, setStatus] = useState(false);
-  const [data, setData] = useState(useContext(DataContext));
+  const context =useContext(DataContext);
 
 useEffect(() => {
-  data.keine 
-  || data.googleAnalytics 
-  || data.googleFonts 
-  || data.matomo
-  || data.mailchimp
+  context.data.keine 
+  || context.data.googleAnalytics 
+  || context.data.googleFonts 
+  || context.data.matomo
+  || context.data.mailchimp
   ? setStatus(true) : setStatus(false); 
-}, [data]);
+}, [context.data]);
 
   return (
     <div className={status ? "input-group green" : "input-group red"} >
@@ -27,11 +27,11 @@ useEffect(() => {
         <h3>Welche externen Dienste nutzen Sie?</h3>
       </div>
       <div className="card-container">
-        <Card imageUrl={require('../../assets/logos/googleAnalytics.png')}  action={newStatus => setData({ ...data, googleAnalytics: newStatus })} title="Google Analytics" content={""} />
-        <Card imageUrl={require('../../assets/logos/googleFonts.png')}     action={newStatus => setData({ ...data, googleFonts: newStatus })} title="Google Fonts" content={""} />
-        <Card imageUrl={require('../../assets/logos/matomo.png')}  action={newStatus => setData({ ...data, matomo: newStatus })}  title="Matomo" content={""} />
-        <Card imageUrl={require('../../assets/logos/mailchimp.png')}  action={newStatus => setData({ ...data, mailchimp: newStatus })}  title="Mailchimp" content={""} />
-        <Card imageUrl={require('../../assets/logos/keine.png')}  action={newStatus => setData({ ...data, keine: newStatus })}  title="keine/andere" content={""} />
+        <Card imageUrl={require('../../assets/logos/googleAnalytics.png')}  action={newStatus => context.update("googleAnalytics")(newStatus)} title="Google Analytics" content={""} />
+        <Card imageUrl={require('../../assets/logos/googleFonts.png')}     action={newStatus => context.update("googleFonts")(newStatus)}title="Google Fonts" content={""} />
+        <Card imageUrl={require('../../assets/logos/matomo.png')}  action={newStatus => context.update("matomo")(newStatus)}  title="Matomo" content={""} />
+        <Card imageUrl={require('../../assets/logos/mailchimp.png')} action={newStatus => context.update("mailchimp")(newStatus)}  title="Mailchimp" content={""} />
+        <Card imageUrl={require('../../assets/logos/keine.png')}  action={newStatus => context.update("keine")(newStatus)} title="keine/andere" content={""} />
       </div>
     </div>)
 }

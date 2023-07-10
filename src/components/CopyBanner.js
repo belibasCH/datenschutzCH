@@ -15,7 +15,7 @@ const CopyBanner = ({ status }) => {
             </>}
             {status && <> 
             <h2>Ready to go!</h2>
-            <p>Füllen Sie das Formular auf der rechten Seite vollständig aus</p>
+            <p>Kopieren Sie den HTML Code und fügen Sie ihn auf ihrer Webseite ein.</p>
             <button onClick={getPolicy}>Jetzt kopieren</button>
             </>}
 

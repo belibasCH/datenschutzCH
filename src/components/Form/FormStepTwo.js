@@ -5,6 +5,10 @@ import Accordion from "../Accordion";
 import Technisch from "./stepTwo/Technisch";
 import Registrierung from "./stepTwo/Registrierung";
 import Kommunikation from "./stepTwo/Kommunikation";
+import Stamm from "./stepTwo/Stamm";
+import Vertrag from "./stepTwo/Vertrag";
+import Verhalten from "./stepTwo/Verhalten";
+import Sonstige from "./stepTwo/Sonstige";
 
 
 const FormStepTwo = () => {
@@ -16,8 +20,8 @@ const FormStepTwo = () => {
 
 
   return (
-    <div className={[...status.values()].filter(e => e).length ==9 ? "input-group green" : "input-group red"} >
-      <div className={status.technisch ? "stats green" : "stats red"} >{[...status.values()].filter(e => e).length} von 9</div>
+    <div className={[...status.values()].filter(e => e).length ==7 ? "input-group green" : "input-group red"} >
+      <div className={status.technisch ? "stats green" : "stats red"} >{[...status.values()].filter(e => e).length} von 7</div>
       <div className='stepheading'>
         <h2 >Schritt 2</h2>
         <h3>Informationen zur Datenverarbeitung</h3>
@@ -25,12 +29,10 @@ const FormStepTwo = () => {
       <Technisch update={updateStatus}/>
       <Registrierung update={updateStatus}/>
       <Kommunikation update={updateStatus}/>
-        <Accordion title="Registrierungsdaten" content="Inhalt" status="red" open={true} />
-        <Accordion title="Kommunikationsdaten" content="Inhalt" status="green" open={true} />
-        <Accordion title="Stammdaten" content="Inhalt" status="red" open={true} />
-        <Accordion title="Vertragsdaten" content="Inhalt" status="red" open={true} />
-        <Accordion title="Verhaltens und Präferenzdaten" content="Inhalt" status="red" open={true} />
-        <Accordion title="Sonstige Daten" content="Inhalt" status="red" open={true} />
+      <Stamm update={updateStatus}/>
+      <Vertrag update={updateStatus}/>
+      <Verhalten update={updateStatus}/>
+      <Sonstige update={updateStatus}/>
     </div>)
 }
 

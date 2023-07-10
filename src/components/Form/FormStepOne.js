@@ -12,16 +12,19 @@ const FormStepOne = () => {
     if (context.data.companyName !== '') { newStatus++ }
     if (context.data.url !== '') { newStatus++ }
     if (context.data.companyAddress !== "") { newStatus++ }
-    if (context.data.companyPLZ !== "") { newStatus++ }
+    if (context.data.companyPLZ !== 0) { newStatus++ }
     if (context.data.companyPlace !== "") { newStatus++ }
+    if (context.data.eMail !== '') { newStatus++ }
+    if (context.data.datenschutzbeauftragter !== '') { newStatus++ }
+
     setStatus(newStatus);
   }, [context]);
 
   
 
   return (
-  <div className={status === 5 ? "input-group green" : "input-group red"} >
-    <div className={status === 5 ? "stats green" : "stats red"} >{status} von 5</div>
+  <div className={status === 7 ? "input-group green" : "input-group red"} >
+    <div className={status === 7 ? "stats green" : "stats red"} >{status} von 7</div>
     <div className='stepheading'>
       <h2 >Schritt 1</h2>
       <h3>Beschreibung zu Schritt 1</h3>
@@ -46,6 +49,16 @@ const FormStepOne = () => {
           value={context.data.url}
           placeholder="https://"
           onChange={(e) => context.update("url")(e.target.value)} />
+      </div>
+      <div className='inputcell'>
+        <label htmlFor="E-Mail">E-Mail</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value={context.data.eMail}
+          placeholder="E-Mail"
+          onChange={(e) => context.update("eMail")(e.target.value)} />
       </div>
       <div className='inputcell'>
         <label htmlFor="companyAddress">Adresse</label>
@@ -76,6 +89,16 @@ const FormStepOne = () => {
           value={context.data.companyPlace}
           placeholder="Ort"
           onChange={(e) => context.update("companyPlace")(e.target.value)} />
+      </div>
+      <div className='inputcell'>
+        <label htmlFor="companyPlace">Datenschutzbeauftragter</label>
+        <input
+          type="text"
+          id="datenschutzbeauftragter"
+          name="datenschutzbeauftragter"
+          value={context.data.datenschutzbeauftragter}
+          placeholder="Vorname Name"
+          onChange={(e) => context.update("datenschutzbeauftragter")(e.target.value)} />
       </div>
     </div>
     </div>)

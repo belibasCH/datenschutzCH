@@ -11,14 +11,14 @@ const Kommunikation = ({ update }) => {
 
   useEffect(() => {
     if (context.data.kommunikationAufbewahrung !== 0
-      && context.data.kommunikationAufbewahrungIdentität !== 0) {
+      && context.data.kommunikationAufbewahrungIdentitaet !== 0) {
       setStatus(true);
     }
   }, [context.data]);
 
   useEffect(() => {
     if (status) { update("kommunikation")(true); }
-    else { update("Kommunikation")(false) }
+    else { update("kommunikation")(false) }
   }, [status]);
 
   const content = <>
@@ -28,8 +28,8 @@ const Kommunikation = ({ update }) => {
       <div className="input-row-group">
         <input type="number"
           min={0}
-          value={context.data.kommunikationAufbewahrungRecordings}
-          onChange={(e) => context.update("kommunikationAufbewahrungRecordings")(e.target.value)} />
+          value={context.data.kommunikationAufbewahrungIdentitaet}
+          onChange={(e) => context.update("kommunikationAufbewahrungIdentitaet")(e.target.value)} />
         <p>Jahre</p>
       </div>
     </div>

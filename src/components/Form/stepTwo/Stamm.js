@@ -10,12 +10,15 @@ const Stamm = ({ update }) => {
     const [status, setStatus] = useState(false);
 
     useEffect(() => {
-        if (context.data.technischAufbewahrung !== 0) {
-            setStatus(true);
-            update("technisch")(true);
+        if (context.data.stammAufbewahrung !== 0) {
+          setStatus(true);
         }
-        else { update("technisch")(false) }
-    }, [context.data]);
+      }, [context.data]);
+    
+      useEffect(() => {
+        if (status) { update("stamm")(true); }
+        else { update("stamm")(false) }
+      }, [status]);
 
     const content = <>
         <div className="accordion-input">
@@ -38,14 +41,14 @@ const Stamm = ({ update }) => {
                 onChange={(e) => context.update("stammEvents")(e.target.checked)} />
         </div>
         <div className="accordion-input">
-            <label>Nutzen Sie Stammdaten für die Versendung von Gutscheinen</label>
+            <label>Nutzen Sie Stammdaten für die Versendung von Gutscheinen?</label>
             <input
                 type="checkbox"
                 value={context.data.stammGutscheine}
                 onChange={(e) => context.update("stammGutscheine")(e.target.checked)} />
         </div>
         <div className="accordion-input">
-            <label>Nutzen Sie Stammdaten für die Versendung von Newsletter</label>
+            <label>Nutzen Sie Stammdaten für die Versendung von Newsletter?</label>
             <input
                 type="checkbox"
                 value={context.data.stammNewsletter}

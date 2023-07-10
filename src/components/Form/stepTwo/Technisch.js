@@ -11,11 +11,14 @@ const Technisch = ({ update }) => {
 
     useEffect(() => {
         if (context.data.technischAufbewahrung !== 0) {
-            setStatus(true);
-            update("technisch")(true);
+          setStatus(true);
         }
+      }, [context.data]);
+    
+      useEffect(() => {
+        if (status) { update("technisch")(true); }
         else { update("technisch")(false) }
-    }, [context.data]);
+      }, [status]);
 
     const content = <>
         <div className="accordion-input">

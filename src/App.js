@@ -11,11 +11,13 @@ import FormStepFour from './components/Form/FormStepFour';
 const App = () => {
   App.defaultProps = {
     data: {
-      companyName: 'Name',
+      companyName: '',
       companyAddress: '',
-      companyPLZ: '',
+      companyPLZ: 0,
       companyPlace: '',
+      eMail: '',
       url: '',
+      datenschutzbeauftragter: '',
       technischAufbewahrung: 0,
       technischWlan: false,
       registrierungWettbewerbe: false,
@@ -26,10 +28,19 @@ const App = () => {
       kommunikationChat: false,
       kommunikationAufbewahrungChats: 0,
       kommunikationRecording: false,
-      kommunikationAufbewahrungVideoRecordings: 0,
-      kommunikationAufbewahrungIdentität: 0,
+      kommunikationAufbewahrungRecordings: 0,
+      kommunikationAufbewahrungIdentitaet: 0,
       kommunikationAufbewahrungMail: 0,
-      
+      stammEvents: false,
+      stammGutscheine: false,
+      stammNewsletter: false,
+      stammAufbewahrung: 0,
+      vertragAufbewahrung: 0,
+      vertragReaktionen: false,
+      verhaltenBewegungsprofil: false,
+      verhaltenAufbewahrungBewegung: 0,
+      verhaltenAufbewahrung: 0,
+      sonstigeEventsTracing: 0,
       
       CH: false,
       EU: false,
@@ -44,9 +55,49 @@ const App = () => {
     }
   
   const [data, setData] = useState(App.defaultProps.data);
-  
+  const [status, setStatus] = useState(false);
+
+
+  useEffect(() => {
+    if (isComplete()) {
+      console.log("complete");
+      setStatus(true);
+    }
+    else{
+      setStatus(false);
+      console.log("not comp");
+    }
+  }, [data]);
+
+
   const update = key => value =>{
     setData({ ...data, [key]: value });
+  }
+
+  const isComplete = () =>  {
+    let one = false;
+    let two = false;
+    let three = false;
+
+    one = data.companyName !== ""
+      && data.companyAddress !== ""
+      && data.companyPLZ !== 0
+      && data.companyPlace !== ""
+      && data.url !== ""
+      && data.technischAufbewahrung !== 0
+      && data.registrierungAufbewahrung !== 0
+      && data.registrierungAufbewahrung !== 0
+      && data.kommunikationAufbewahrungIdentitaet !== 0
+      && data.kommunikationAufbewahrungMail !== 0
+      && data.stammAufbewahrung !== 0
+      && data.vertragAufbewahrung !== 0
+      && data.verhaltenAufbewahrung !== 0
+      && data.sonstigeEventsTracing !== 0
+      
+      two  = data.CH || data.EU || data.World
+      three = data.googleAnalytics || data.googleFonts || data.mailchimp || data.matomo || data.keine
+
+    return one && two && three;
   }
 
   return (
@@ -59,7 +110,7 @@ const App = () => {
             <FormStepThree />
             <FormStepFour />
           </form>
-          <Datenschutzerklaerung status={false} />
+          <Datenschutzerklaerung status={status} />
         </main>
       </DataContext.Provider>
     </div>
