@@ -4,18 +4,18 @@ import { DataContext } from "../../DataContext";
 
 
 const FormStepOne = () => {
-  const [data, setData] = useState(useContext(DataContext));
+  const context = useContext(DataContext);
   const [status, setStatus] = useState(0);
 
   useEffect(() => {
     let newStatus = 0;
-    if (data.companyName != '') { newStatus++ }
-    if (data.url != '') { newStatus++ }
-    if (data.companyAddress != "") { newStatus++ }
-    if (data.companyPLZ != "") { newStatus++ }
-    if (data.companyPlace != "") { newStatus++ }
+    if (context.data.companyName != '') { newStatus++ }
+    if (context.data.url != '') { newStatus++ }
+    if (context.data.companyAddress != "") { newStatus++ }
+    if (context.data.companyPLZ != "") { newStatus++ }
+    if (context.data.companyPlace != "") { newStatus++ }
     setStatus(newStatus);
-  }, [data]);
+  }, [context]);
 
   
 
@@ -33,9 +33,9 @@ const FormStepOne = () => {
           type="text"
           id="companyName"
           name="companyName"
-          value={data.companyName}
+          value={context.data.companyName}
           placeholder="Gemäss Handelsregister"
-          onChange={(e) => setData({ ...data, companyName: e.target.value })} />
+          onChange={(e) => context.update("companyName")(e.target.value)} />
       </div>
       <div className='inputcell'>
         <label htmlFor="url">URL</label>
@@ -43,9 +43,9 @@ const FormStepOne = () => {
           type="text"
           id="url"
           name="url"
-          value={data.url}
+          value={context.data.url}
           placeholder="https://"
-          onChange={(e) => setData({ ...data, url: e.target.value })} />
+          onChange={(e) => context.update("url")(e.target.value)} />
       </div>
       <div className='inputcell'>
         <label htmlFor="companyAddress">Adresse</label>
@@ -53,19 +53,19 @@ const FormStepOne = () => {
           type="text"
           id="companyAddress"
           name="companyAddress"
-          value={data.companyAddress}
+          value={context.data.companyAddress}
           placeholder="Str/Nr"
-          onChange={(e) => setData({ ...data, companyAddress: e.target.value })} />
+          onChange={(e) => context.update("companyAddress")(e.target.value)} />
       </div>
       <div className='inputcell'>
         <label htmlFor="companyPLZ">PLZ</label>
         <input
-          type="text"
+          type="number"
           id="companyPLZ"
           name="companyPLZ"
-          value={data.companyPLZ}
+          value={context.data.companyPLZ}
           placeholder="PLZ"
-          onChange={(e) => setData({ ...data, companyPLZ: e.target.value })} />
+          onChange={(e) => context.update("companyPLZ")(e.target.value)} />
       </div>
       <div className='inputcell'>
         <label htmlFor="companyPlace">Ort</label>
@@ -73,9 +73,9 @@ const FormStepOne = () => {
           type="text"
           id="companyPlace"
           name="companyPlace"
-          value={data.companyPlace}
+          value={context.data.companyPlace}
           placeholder="Ort"
-          onChange={(e) => setData({ ...data, companyPlace: e.target.value })} />
+          onChange={(e) => context.update("companyPlace")(e.target.value)} />
       </div>
     </div>
     </div>)
