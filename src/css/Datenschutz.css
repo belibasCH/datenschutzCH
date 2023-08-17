@@ -9,6 +9,8 @@
 
   #datenschutz-document{
     overflow: scroll;
+    scrollbar-color : var(--bluegray) transparent;
+  scrollbar-width: thin;
     padding: var(--default-gap);
     height: 95%;
     background-color:white; 

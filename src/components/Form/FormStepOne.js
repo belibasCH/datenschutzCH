@@ -76,7 +76,6 @@ const FormStepOne = () => {
           type="number"
           id="companyPLZ"
           name="companyPLZ"
-          value={context.data.companyPLZ}
           placeholder="PLZ"
           onChange={(e) => context.update("companyPLZ")(e.target.value)} />
       </div>
