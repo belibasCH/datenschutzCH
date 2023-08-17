@@ -10,7 +10,7 @@
   #datenschutz-document{
     overflow: scroll;
     padding: var(--default-gap);
-    height: 100%;
+    height: 95%;
     background-color:white; 
     color: #ACB0B1;
 }

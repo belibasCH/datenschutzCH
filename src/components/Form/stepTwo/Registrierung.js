@@ -9,8 +9,6 @@ const Registrierung = ({ update }) => {
   const context = useContext(DataContext);
   const [status, setStatus] = useState(false);
 
-  console.log(context.data)
-
   useEffect(() => {
     if (context.data.registrierungAufbewahrung !== 0) { setStatus(true); }
   }, [context.data]);

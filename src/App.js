@@ -47,8 +47,9 @@ const App = () => {
       World: false,
     
       googleAnalytics: false,
-      googleFonts: false,
+      msdynamics: false,
       matomo: false,
+      matomoUrl: "",
       mailchimp: false,
       keine: false,
       }
@@ -110,7 +111,7 @@ const App = () => {
             <FormStepThree />
             <FormStepFour />
           </form>
-          <Datenschutzerklaerung status={status} />
+          <Datenschutzerklaerung status={status} context={data}/>
         </main>
       </DataContext.Provider>
     </div>

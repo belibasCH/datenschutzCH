@@ -2,7 +2,7 @@ import React , { useContext, useEffect } from "react";
 import { useState } from 'react';
 import Card from "../Card";
 import { DataContext } from "../../DataContext";
-import GoogleAnalytics from './../GoogleAnalytics';
+import GoogleAnalytics from '../Services/GoogleAnalytics';
 
 
 
@@ -16,7 +16,9 @@ useEffect(() => {
   || context.data.googleFonts 
   || context.data.matomo
   || context.data.mailchimp
-  ? setStatus(true) : setStatus(false); 
+  || context.data.pipedrive
+  || context.data.cloudflare 
+  ? setStatus(true) : console.log("no update"); 
 }, [context.data]);
 
   return (
@@ -28,9 +30,11 @@ useEffect(() => {
       </div>
       <div className="card-container">
         <Card imageUrl={require('../../assets/logos/googleAnalytics.png')}  action={newStatus => context.update("googleAnalytics")(newStatus)} title="Google Analytics" content={""} />
-        <Card imageUrl={require('../../assets/logos/googleFonts.png')}     action={newStatus => context.update("googleFonts")(newStatus)}title="Google Fonts" content={""} />
-        <Card imageUrl={require('../../assets/logos/matomo.png')}  action={newStatus => context.update("matomo")(newStatus)}  title="Matomo" content={""} />
+        <Card imageUrl={require('../../assets/logos/dynamics.png')}     action={newStatus => context.update("msdynamics")(newStatus)}title="Microsoft Dynamics" content={""} />
+        <Card imageUrl={require('../../assets/logos/matomo.png')}  action={newStatus => { context.update("matomo")(newStatus)}}  title="Matomo" content={""} />
         <Card imageUrl={require('../../assets/logos/mailchimp.png')} action={newStatus => context.update("mailchimp")(newStatus)}  title="Mailchimp" content={""} />
+        <Card imageUrl={require('../../assets/logos/pipedrive.png')} action={newStatus => context.update("pipedrive")(newStatus)}  title="Pipedrive" content={""} />
+        <Card imageUrl={require('../../assets/logos/cloudflare.png')} action={newStatus => context.update("cloudflare")(newStatus)}  title="Cloudflare" content={""} />
         <Card imageUrl={require('../../assets/logos/keine.png')}  action={newStatus => context.update("keine")(newStatus)} title="keine/andere" content={""} />
       </div>
     </div>)
